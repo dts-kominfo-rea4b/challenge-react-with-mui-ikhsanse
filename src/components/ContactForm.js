@@ -42,7 +42,7 @@ const ContactForm = ({addContactOnHandler}) => {
       photo: enteredPhoto,
     };
     setNewContact(contact);
-    addContactOnHandler(newContact);
+    addContactOnHandler(contact);
 
     setEnteredEmail("");
     setEnteredName("");
