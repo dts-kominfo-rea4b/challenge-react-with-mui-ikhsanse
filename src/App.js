@@ -16,7 +16,7 @@ const App = () => {
   const [contacts, setContacts] = useState(contactsJSON);
 
   // Buatlah handler untuk menambahkan kontak baru yang akan dikirim ke ContactForm
-  const addContactHandler = (newContact) => {
+  const addContact = (newContact) => {
     setContacts([...contacts, newContact]);
   };
   // console.log(contacts)
@@ -27,7 +27,7 @@ const App = () => {
       <Container sx={{ marginTop: "1rem" }}>
         <Grid container justifyContent="space-between" spacing={2}>
           <Grid item md={6}>
-            <ContactForm addContactOnHandler={addContactHandler} />
+            <ContactForm addContact={addContact} />
           </Grid>
           <Grid item sm={12} md={6}>
             {contacts.map((contact) => (

@@ -10,7 +10,7 @@ import TextField from "@mui/material/TextField";
 // dan Card
 // https://mui.com/material-ui/react-card/#basic-card
 
-const ContactForm = ({ addContactOnHandler }) => {
+const ContactForm = ({ addContact }) => {
   // Form berisi name, phone, email, dan photo url
   // Buatlah state newContact berupa objek sesuai dengan data yang ada
   const [newContact, setNewContact] = useState({
@@ -28,64 +28,60 @@ const ContactForm = ({ addContactOnHandler }) => {
     });
   };
   const addContactHandler = () => {
-    addContactOnHandler(newContact);
+    addContact(newContact);
   };
   return (
-    <>
-      {/* <form> */}
-      <Card sx={{ backgroundColor: "#f3f1eb" }}>
-        <CardContent>
-          <TextField
-            fullWidth
-            name="name"
-            id="name-field"
-            label="Name *"
-            variant="filled"
-            margin="dense"
-            value={newContact.name}
-            onChange={inputHandler}
-          />
-          <TextField
-            fullWidth
-            name="phone"
-            type="number"
-            id="phone-field"
-            label="Phone *"
-            variant="filled"
-            margin="dense"
-            value={newContact.phone}
-            onChange={inputHandler}
-          />
-          <TextField
-            fullWidth
-            name="email"
-            type="email"
-            id="email-field"
-            label="Email *"
-            variant="filled"
-            margin="dense"
-            value={newContact.email}
-            onChange={inputHandler}
-          />
-          <TextField
-            fullWidth
-            name="photo"
-            id="photo-field"
-            label="Photo URL *"
-            variant="filled"
-            margin="dense"
-            value={newContact.photo}
-            onChange={inputHandler}
-          />
-        </CardContent>
-        <CardActions>
-          <Button onClick={addContactHandler} color="success" variant="text">
-            Add New
-          </Button>
-        </CardActions>
-      </Card>
-      {/* </form> */}
-    </>
+      <form>
+        <Card sx={{ backgroundColor: "#f3f1eb" }}>
+          <CardContent>
+            <TextField
+              fullWidth
+              name="name"
+              id="name-field"
+              label="Name *"
+              variant="filled"
+              margin="dense"
+              value={newContact.name}
+              onChange={inputHandler}
+            />
+            <TextField
+              fullWidth
+              name="phone"
+              id="phone-field"
+              label="Phone *"
+              variant="filled"
+              margin="dense"
+              value={newContact.phone}
+              onChange={inputHandler}
+            />
+            <TextField
+              fullWidth
+              name="email"
+              id="email-field"
+              label="Email *"
+              variant="filled"
+              margin="dense"
+              value={newContact.email}
+              onChange={inputHandler}
+            />
+            <TextField
+              fullWidth
+              name="photo"
+              id="photo-field"
+              label="Photo URL *"
+              variant="filled"
+              margin="dense"
+              value={newContact.photo}
+              onChange={inputHandler}
+            />
+          </CardContent>
+          <CardActions>
+            <Button onClick={addContactHandler} color="success" variant="text">
+              Add New
+            </Button>
+          </CardActions>
+        </Card>
+      </form>
   );
 };
 
