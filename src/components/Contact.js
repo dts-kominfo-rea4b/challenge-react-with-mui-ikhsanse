@@ -14,19 +14,18 @@ import Typography from "@mui/material/Typography";
 // atau langsung tambahkan dengan sx={{}}
 const Contact = ({ data }) => {
   // Contact berisi foto, nama, telepon, dan email
-  const { name, phone, email, photo } = data;
   return (
     <List sx={{ width: "100%", backgroundColor: "#dbf6f0" }}>
       <ListItem>
         <ListItemAvatar>
           <Avatar sx={{ width: "80px", height: "80px", marginRight: "2rem" }}>
-            <img src={photo} alt="" />
+            <img src={data.photo} alt="" />
           </Avatar>
         </ListItemAvatar>
         <ListItemText>
-          <Typography color="text.primary">{name}</Typography>
-          <Typography color="text.secondary">{phone}</Typography>
-          <Typography color="text.secondary">{email}</Typography>
+          <Typography color="text.primary">{data.name}</Typography>
+          <Typography color="text.secondary">{data.phone}</Typography>
+          <Typography color="text.secondary">{data.email}</Typography>
         </ListItemText>
       </ListItem>
       <Divider />

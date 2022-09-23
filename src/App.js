@@ -19,7 +19,6 @@ const App = () => {
   const addContact = (newContact) => {
     setContacts([...contacts, newContact]);
   };
-  // console.log(contacts)
 
   return (
     <div className="App">

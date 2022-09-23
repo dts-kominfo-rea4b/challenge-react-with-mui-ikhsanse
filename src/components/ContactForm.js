@@ -27,6 +27,7 @@ const ContactForm = ({ addContact }) => {
       [e.target.name]: e.target.value,
     });
   };
+  // Passing newContact state to App.js(parent)
   const addContactHandler = () => {
     addContact(newContact);
   };
