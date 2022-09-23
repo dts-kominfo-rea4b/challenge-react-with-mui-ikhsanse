@@ -16,24 +16,22 @@ const Contact = ({ data }) => {
   // Contact berisi foto, nama, telepon, dan email
   return (
     <>
-      {data.map((contact) => (
-        <List sx={{ width: "100%", backgroundColor: "#dbf6f0" }}>
-          <ListItem>
-            <ListItemAvatar>
-              <Avatar
-                sx={{ width: "80px", height: "80px", marginRight: "2rem" }}
-                src={contact.photo}
-              />
-            </ListItemAvatar>
-            <ListItemText>
-              <Typography color="text.primary">{contact.name}</Typography>
-              <Typography color="text.secondary">{contact.phone}</Typography>
-              <Typography color="text.secondary">{contact.email}</Typography>
-            </ListItemText>
-          </ListItem>
-          <Divider />
-        </List>
-      ))}
+      <List sx={{ width: "100%", backgroundColor: "#dbf6f0" }}>
+        <ListItem>
+          <ListItemAvatar>
+            <Avatar
+              sx={{ width: "80px", height: "80px", marginRight: "2rem" }}
+              src={data.photo}
+            />
+          </ListItemAvatar>
+          <ListItemText>
+            <Typography color="text.primary">{data.name}</Typography>
+            <Typography color="text.secondary">{data.phone}</Typography>
+            <Typography color="text.secondary">{data.email}</Typography>
+          </ListItemText>
+        </ListItem>
+        <Divider />
+      </List>
     </>
   );
 };
