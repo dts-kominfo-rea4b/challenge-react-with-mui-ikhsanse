@@ -1,0 +1,17 @@
+.subtitle {
+  display: flex;
+  margin-bottom: 10rem;
+}
+.subtitle:before,
+.subtitle:after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 2px solid #999999;
+  margin: auto;
+}
+.subtitle:before,
+.subtitle:after {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
