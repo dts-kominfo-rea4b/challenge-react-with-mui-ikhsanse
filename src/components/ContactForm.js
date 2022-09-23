@@ -10,46 +10,26 @@ import TextField from "@mui/material/TextField";
 // dan Card
 // https://mui.com/material-ui/react-card/#basic-card
 
-const ContactForm = ({addContactOnHandler}) => {
-  const [enteredName, setEnteredName] = useState("");
-  const [enteredPhone, setEnteredPhone] = useState("");
-  const [enteredEmail, setEnteredEmail] = useState("");
-  const [enteredPhoto, setEnteredPhoto] = useState("");
-  const [newContact, setNewContact] = useState([]);
+const ContactForm = ({ addContactOnHandler }) => {
   // Form berisi name, phone, email, dan photo url
   // Buatlah state newContact berupa objek sesuai dengan data yang ada
-  const nameHandler = (e) => {
-    setEnteredName(e.target.value);
-  };
+  const [newContact, setNewContact] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    photo: "",
+  });
 
-  const phoneHandler = (e) => {
-    setEnteredPhone(e.target.value);
+  // handler untuk get value inputan
+  const inputHandler = (e) => {
+    setNewContact({
+      ...newContact,
+      [e.target.name]: e.target.value,
+    });
   };
-
-  const emailHandler = (e) => {
-    setEnteredEmail(e.target.value);
-  };
-
-  const photoHandler = (e) => {
-    setEnteredPhoto(e.target.value);
-  };
-
   const addContactHandler = () => {
-    const contact = {
-      name: enteredName,
-      email: enteredEmail,
-      phone: enteredPhone,
-      photo: enteredPhoto,
-    };
-    setNewContact(contact);
-    addContactOnHandler(contact);
-
-    setEnteredEmail("");
-    setEnteredName("");
-    setEnteredPhone("");
-    setEnteredPhoto("");
+    addContactOnHandler(newContact);
   };
-
   return (
     <>
       {/* <form> */}
@@ -57,41 +37,45 @@ const ContactForm = ({addContactOnHandler}) => {
         <CardContent>
           <TextField
             fullWidth
+            name="name"
             id="name-field"
             label="Name *"
             variant="filled"
             margin="dense"
-            value={enteredName}
-            onChange={nameHandler}
+            value={newContact.name}
+            onChange={inputHandler}
           />
           <TextField
             fullWidth
+            name="phone"
             type="number"
             id="phone-field"
             label="Phone *"
             variant="filled"
             margin="dense"
-            value={enteredPhone}
-            onChange={phoneHandler}
+            value={newContact.phone}
+            onChange={inputHandler}
           />
           <TextField
             fullWidth
+            name="email"
             type="email"
             id="email-field"
             label="Email *"
             variant="filled"
             margin="dense"
-            value={enteredEmail}
-            onChange={emailHandler}
+            value={newContact.email}
+            onChange={inputHandler}
           />
           <TextField
             fullWidth
+            name="photo"
             id="photo-field"
             label="Photo URL *"
             variant="filled"
             margin="dense"
-            value={enteredPhoto}
-            onChange={photoHandler}
+            value={newContact.photo}
+            onChange={inputHandler}
           />
         </CardContent>
         <CardActions>
